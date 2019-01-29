@@ -40,52 +40,32 @@ if(isset($_POST['loginBtn'])){
         if(count($form_errors) == 1){
             $result = flashMessage("There was one error in the form");
         }else{
-            $result = flashMessage("There was " .count($form_errors). " error in the form");
+            $result = flashMessage("There were " .count($form_errors). " error in the form");
         }
     }
 }
 ?>
 
-<?php
-$page_title = "User Authentication - Login Page";
-include_once 'partials/headers.php';
-?>
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
 <body>
+<h2>User Authentication System </h2><hr>
 
-<div role="main" class="container">
-  <div class="login_main">
-    <section class="col col-lg-7">
-        <h2>Login Form</h2><hr>
-        <div>
-        <?php if(isset($result)) echo $result; ?>
-        <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
-        </div>
+<h3>Login Form</h3>
 
-        <div class="clearfix"></div>
-        <form action="" method="post">
-            <div class="form-group">
-                <label for="usernamerField">Username</label>
-                <input type="text" class="form-control" name="username" id="usernameField" placeholder="Username">
-                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-            </div>
-            <div class="form-group">
-                <label for="passwordField">Password</label>
-                <input type="password" class="form-control" name="password" id="passwordField" placeholder="Password">
-                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-            </div>
-            <div class="form-group form-check">
-                <label>
-                    <input name="remember" type="checkbox"> Remember Me
-                </label>
-            </div>
-                <a href="forgot_password.php">Forgot Password?</a>
-                <button type="submit" name="loginBtn" class="btn btn-primary pull-right" style="float: right; ">Sign in</button>
-          </form>
-          <br><p><a href="index.php">Back</a> </p>
-    </section>
-</div>
-
-<?php include_once 'partials/footers.php'; ?>
-
+<?php if(isset($result)) echo $result; ?>
+<?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
+<form method="post" action="">
+    <table>
+        <tr><td>Username:</td> <td><input type="text" value="" name="username"></td></tr>
+        <tr><td>Password:</td> <td><input type="password" value="" name="password"></td></tr>
+        <tr><td><a href="forgot_password.php">Forgot Password?</a></td><td><input style="float: right;" type="submit" name="loginBtn" value="Signin"></td></tr>
+    </table>
+</form>
+<p><a href="index.php">Back</a> </p>
 </body>
 </html>

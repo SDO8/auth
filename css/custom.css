@@ -2,7 +2,7 @@
 /* Padding around the text content */
 body {
   padding: 70px;
-  background-color: grey;
+  /* background-color: grey; */
 }
 h1 {
   text-align: center;
